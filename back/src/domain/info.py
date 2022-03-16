@@ -48,3 +48,7 @@ class InfoRepository:
         cursor = conn.cursor()
         cursor.execute(sql, info.to_dict())
         conn.commit()
+
+class Tour:
+    def __init__(self) -> None:
+        
