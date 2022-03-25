@@ -7,9 +7,14 @@ const routes = [
     component: () => import('@/pages/home/HomePage.vue'),
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('@/pages/about/AboutPage.vue'),
+    path: '/tours',
+    name: 'ToursListPage',
+    component: () => import('@/pages/tours-list/ToursListPage.vue'),
+  },
+  {
+    path: '/tours/:tour_id',
+    name: 'TourDetailPage',
+    component: () => import('@/pages/tour-detail/TourDetailPage.vue'),
   },
 ]
 
