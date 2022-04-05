@@ -3,12 +3,12 @@
 
   <h2>Nombre ruta: {{tour.tour_name}}</h2>
   <h3>Descripción ruta: {{tour.tour_description}}</h3>
-  <ul v-for="(filter, index) in tour.filters" :key="index">
+  <ul v-for="filter in tour.filters" :key="filter">
     <li>filtros: {{filter}}</li>
   </ul>
   <p>barrio: {{tour.quarter}}</p>
 
-  <section v-for="(stop, index) in tour.tour_stops" :key="index" class="stop-wrapper">
+  <section v-for="stop in tour.tour_stops" :key="stop.stop_id" class="stop-wrapper">
 
     
     <h4>{{stop.stop_name}}</h4>
@@ -91,5 +91,9 @@ export default {
 </script>
 
 <style scoped>
+
+.stop-wrapper{
+  margin-bottom: 2em;
+}
 
 </style>
