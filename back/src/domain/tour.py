@@ -22,6 +22,7 @@ class TourRepository:
                 tour_id varchar,
                 tour_name text,
                 tour_desc text,
+                tour_front_image varchar,
                 favorite_tour numeric,
                 completed numeric,
                 filters numeric,

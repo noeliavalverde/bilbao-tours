@@ -43,14 +43,15 @@ export default {
   methods: {
      loadData(){
        this.tour = {
-       tour_name:"Ruta 1",
-       tour_id:"tour001",
-       tour_description:"Breve explicacion ruta 1",
-       favorite_tour:true,
-       completed:false,
-       filters:["arquitecture", "industrial"],
-       quarter:["abando", "casco", "deusto", "uribarri"],
-       tour_stops:[{"stop_id": "stop001",
+       "tour_name":"Ruta 1",
+       "tour_id":"tour001",
+       "tour_description":"Breve explicacion ruta 1",
+       "favorite_tour":true,
+       "completed":false,
+       "tour_front_image": "https://www.vigoe.es/wp-content/uploads/2021/11/bilbao.jpg",
+       "filters":["arquitecture", "industrial"],
+       "quarter":["abando", "casco", "deusto", "uribarri"],
+       "tour_stops":[{"stop_id": "stop001",
                          "stop_name":"Plaza Circular",
                          "stop_description":"Don Diego López de Haro, Señor de Bizkaia, funda la villa en 1300, y aún la vigila desde lo alto de su monolito en la Plaza Circular rodeado del centro de negocios de esta pujante ciudad. Los tilos dan sombra y perfume a la Gran Vía invitándonos a pasear, a mirar tiendas y a admirar fachadas.",
                          "before_picture":"https://i.pinimg.com/736x/a0/c6/57/a0c657021b83d2edd1c7c26d59c695a9--basque-country-bilbao.jpg",
