@@ -1,6 +1,8 @@
 <template>
+  <BurgerMenu />
   <div class="tour-detail-page">
 
+  
   <h2>Nombre ruta: {{tour.tour_name}}</h2>
   <h3>Descripción ruta: {{tour.tour_description}}</h3>
   <ul v-for="filter in tour.filters" :key="filter">
@@ -28,7 +30,9 @@
 
 <script>
 
+import BurgerMenu from "@/components/BurgerMenu.vue"
 export default {
+  components: {BurgerMenu},
   name: 'TourDetailPage',
   data() {
     return {
