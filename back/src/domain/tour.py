@@ -1,9 +1,36 @@
 import sqlite3
+import json
 
 
 class Tour:
-    def __init__(self):
-        pass
+    def __init__(
+        self,
+        tour_id,
+        tour_name,
+        tour_desc,
+        tour_front_image,
+        favourite_tour,
+        completed,
+        filters,
+    ):
+        self.tour_id = tour_id
+        self.tour_name = tour_name
+        self.tour_desc = tour_desc
+        self.tour_front_image = tour_front_image
+        self.favourite_tour = favourite_tour
+        self.completed = completed
+        self.filters = filters
+
+    def to_dict(self):
+        return {
+            "tour_id": self.tour_id,
+            "tour_name": self.tour_name,
+            "tour_desc": self.tour_desc,
+            "tour_front_image": self.tour_front_image,
+            "favourite_tour": self.favourite_tour,
+            "completed": self.completed,
+            "filters": self.filters,
+        }
 
 
 class TourRepository:
@@ -23,10 +50,9 @@ class TourRepository:
                 tour_name text,
                 tour_desc text,
                 tour_front_image varchar,
-                favorite_tour numeric,
+                favourite_tour numeric,
                 completed numeric,
-                filters numeric,
-                quarter numeric
+                filters varchar
                 )
                 """
         conn = self.create_conn()
@@ -50,3 +76,27 @@ class TourRepository:
             tours.append(tour)
 
         return tours
+
+    def save(self, tour):
+        sql = """INSERT into tours (tour_id,
+                tour_name,
+                tour_desc,
+                tour_front_image,
+                favourite_tour,
+                completed,
+                filters) values (:tour_id, :tour_name, :tour_desc, :tour_front_image, :favourite_tour, :completed, :filters)"""
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(
+            sql,
+            {
+                "tour_id": tour.tour_id,
+                "tour_name": tour.tour_name,
+                "tour_desc": tour.tour_desc,
+                "tour_front_image": tour.tour_front_image,
+                "favourite_tour": tour.favourite_tour,
+                "completed": tour.completed,
+                "filters": json.dumps(tour.filters),
+            },
+        )
+        conn.commit()

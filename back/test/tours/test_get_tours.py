@@ -13,3 +13,54 @@ def test_should_return_empty_list_of_tours():
     response = client.get("/api/tours")
 
     assert response.json == []
+
+
+def test_should_return_list_of_tours():
+    tour_repository = TourRepository(temp_file())
+    app = create_app(repositories={"tours": tour_repository})
+    client = app.test_client()
+
+    tour1 = Tour(
+        tour_id="1",
+        tour_name="Tour primero",
+        tour_desc="Esto es una descripción para testear el tour primero",
+        tour_front_image="https://www.bilbao.bi/bilbao.jpg",
+        favourite_tour=False,
+        completed=False,
+        filters=["arquitecture", "history", "monuments"],
+    )
+    tour2 = Tour(
+        tour_id="2",
+        tour_name="Tour segundo",
+        tour_desc="Esto es una descripción para testear el tour segundo",
+        tour_front_image="https://www.example.bi/bilbao.jpg",
+        favourite_tour=False,
+        completed=False,
+        filters=["nature", "citylife"],
+    )
+
+    tour_repository.save(tour1)
+    tour_repository.save(tour2)
+
+    response = client.get("/api/tours")
+
+    assert response.json == [
+        {
+            "tour_id": "1",
+            "tour_name": "Tour primero",
+            "tour_desc": "Esto es una descripción para testear el tour primero",
+            "tour_front_image": "https://www.bilbao.bi/bilbao.jpg",
+            "favourite_tour": False,
+            "completed": False,
+            "filters": ["arquitecture", "history", "monuments"],
+        },
+        {
+            "tour_id": "2",
+            "tour_name": "Tour segundo",
+            "tour_desc": "Esto es una descripción para testear el tour segundo",
+            "tour_front_image": "https://www.example.bi/bilbao.jpg",
+            "favourite_tour": False,
+            "completed": False,
+            "filters": ["nature", "citylife"],
+        },
+    ]
