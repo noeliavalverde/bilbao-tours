@@ -99,7 +99,7 @@ class TourRepository:
 
         return tours
 
-    def save(self, tour):
+    def save_tour(self, tour):
         sql = """INSERT into tours (tour_id,
                 tour_name,
                 tour_desc,

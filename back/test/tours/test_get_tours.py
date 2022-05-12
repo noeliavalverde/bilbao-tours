@@ -39,8 +39,8 @@ def test_should_return_list_of_tours():
         filters=["nature", "citylife"],
     )
 
-    tour_repository.save(tour1)
-    tour_repository.save(tour2)
+    tour_repository.save_tour(tour1)
+    tour_repository.save_tour(tour2)
 
     response = client.get("/api/tours")
 

@@ -23,7 +23,7 @@ def main():
     )
 
     tour_repository = TourRepository(database_path)
-    tour_repository.save(tour_example)
+    tour_repository.save_tour(tour_example)
 
 
 if __name__ == "__main__":
