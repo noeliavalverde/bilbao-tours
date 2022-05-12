@@ -46,18 +46,33 @@ class TourRepository:
     def init_tables(self):
         sql = """
             CREATE TABLE if not exists tours (
-                tour_id varchar,
+                tour_id varchar PRIMARY KEY,
                 tour_name text,
                 tour_desc text,
                 tour_front_image varchar,
-                favourite_tour numeric,
-                completed numeric,
+                favourite_tour bool,
+                completed bool,
                 filters varchar
+                );
+
+            CREATE TABLE if not exists tour_stops (
+                stop_id varchar PRIMARY KEY,
+                stop_name varchar,
+                stop_description varchar,
+                before_picture varchar,
+                after_picture varchar
+                );
+
+            CREATE TABLE if not exists prepared_tour (
+                tour_id varchar,
+                stop_id varchar,
+                FOREIGN KEY (tour_id) REFERENCES tours(tour_id),
+                FOREIGN KEY (stop_id) REFERENCES tour_stops(stop_id)
                 )
                 """
         conn = self.create_conn()
         cursor = conn.cursor()
-        cursor.execute(sql)
+        cursor.executescript(sql)
         conn.commit()
 
     def get_all_tours(self):
@@ -71,8 +86,15 @@ class TourRepository:
         tours = []
 
         for item in data:
-            tour = Tour(**item)
-
+            tour = Tour(
+                tour_id=item["tour_id"],
+                tour_name=item["tour_name"],
+                tour_desc=item["tour_desc"],
+                tour_front_image=item["tour_front_image"],
+                favourite_tour=item["favourite_tour"],
+                completed=item["completed"],
+                filters=json.loads(item["filters"]),
+            )
             tours.append(tour)
 
         return tours

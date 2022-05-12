@@ -25,8 +25,8 @@ def test_should_return_list_of_tours():
         tour_name="Tour primero",
         tour_desc="Esto es una descripción para testear el tour primero",
         tour_front_image="https://www.bilbao.bi/bilbao.jpg",
-        favourite_tour=False,
-        completed=False,
+        favourite_tour=0,
+        completed=0,
         filters=["arquitecture", "history", "monuments"],
     )
     tour2 = Tour(
@@ -34,8 +34,8 @@ def test_should_return_list_of_tours():
         tour_name="Tour segundo",
         tour_desc="Esto es una descripción para testear el tour segundo",
         tour_front_image="https://www.example.bi/bilbao.jpg",
-        favourite_tour=False,
-        completed=False,
+        favourite_tour=0,
+        completed=0,
         filters=["nature", "citylife"],
     )
 
@@ -50,8 +50,8 @@ def test_should_return_list_of_tours():
             "tour_name": "Tour primero",
             "tour_desc": "Esto es una descripción para testear el tour primero",
             "tour_front_image": "https://www.bilbao.bi/bilbao.jpg",
-            "favourite_tour": False,
-            "completed": False,
+            "favourite_tour": 0,
+            "completed": 0,
             "filters": ["arquitecture", "history", "monuments"],
         },
         {
@@ -59,8 +59,8 @@ def test_should_return_list_of_tours():
             "tour_name": "Tour segundo",
             "tour_desc": "Esto es una descripción para testear el tour segundo",
             "tour_front_image": "https://www.example.bi/bilbao.jpg",
-            "favourite_tour": False,
-            "completed": False,
+            "favourite_tour": 0,
+            "completed": 0,
             "filters": ["nature", "citylife"],
         },
     ]
