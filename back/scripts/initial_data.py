@@ -21,9 +21,19 @@ def main():
         completed=False,
         filters=["arquitecture", "history", "monuments"],
     )
+    tour_example2= Tour(
+        tour_id="tour_002",
+        tour_name="Segundo tour",
+        tour_desc="Tour de ejemplo 2",
+        tour_front_image="https://www.bilbao.bi/bilbao.jpg",
+        favourite_tour=False,
+        completed=False,
+        filters=["nature", "history"],
+    )
 
     tour_repository = TourRepository(database_path)
     tour_repository.save_tour(tour_example)
+    tour_repository.save_tour(tour_example2)
 
 
 if __name__ == "__main__":
