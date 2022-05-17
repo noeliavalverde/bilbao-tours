@@ -24,7 +24,7 @@ def create_app(repositories):
 
     @app.route("/api/tour-stops", methods=["GET"])
     def tour_stops_get():
-        all_tour_stops = repositories["tours"].get_all_tour_stops()
+        all_tour_stops = repositories["tour_stops"].get_all_stops()
         return object_to_json(all_tour_stops)
 
     return app

@@ -2,6 +2,7 @@ import sqlite3
 from src.webserver import create_app
 from src.domain.info import InfoRepository
 from src.domain.tour import TourRepository
+from src.domain.stops import TourStopRepository
 
 
 database_path = "data/database.db"
@@ -9,6 +10,7 @@ database_path = "data/database.db"
 repositories = {
     "info": InfoRepository(database_path),
     "tours": TourRepository(database_path),
+    "tour_stops":TourStopRepository(database_path),
 }
 
 app = create_app(repositories)

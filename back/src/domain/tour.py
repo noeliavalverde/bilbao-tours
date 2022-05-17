@@ -55,15 +55,7 @@ class TourRepository:
                 filters varchar
                 );
 
-            CREATE TABLE if not exists tour_stops (
-                stop_id varchar PRIMARY KEY,
-                stop_name varchar,
-                stop_description varchar,
-                before_picture varchar,
-                after_picture varchar
-                );
-
-            CREATE TABLE if not exists prepared_tour (
+                CREATE TABLE if not exists prepared_tour (
                 tour_id varchar,
                 stop_id varchar,
                 FOREIGN KEY (tour_id) REFERENCES tours(tour_id),
