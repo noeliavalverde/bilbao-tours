@@ -25,7 +25,7 @@ def main():
         tour_id="tour_002",
         tour_name="Segundo tour",
         tour_desc="Tour de ejemplo 2",
-        tour_front_image="https://www.bilbao.bi/bilbao.jpg",
+        tour_front_image="https://www.bilbao.bi/wp-content/uploads/2021/11/que-ver-en-bilbao-2.jpg",
         favourite_tour=False,
         completed=False,
         filters=["nature", "history"],
