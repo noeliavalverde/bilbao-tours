@@ -10,16 +10,16 @@ class Tour:
         tour_desc,
         tour_front_image,
         favourite_tour,
-        completed,
         filters,
+        stops=None,
     ):
         self.tour_id = tour_id
         self.tour_name = tour_name
         self.tour_desc = tour_desc
         self.tour_front_image = tour_front_image
         self.favourite_tour = favourite_tour
-        self.completed = completed
         self.filters = filters
+        self.stops = stops
 
     def to_dict(self):
         return {
@@ -28,8 +28,8 @@ class Tour:
             "tour_desc": self.tour_desc,
             "tour_front_image": self.tour_front_image,
             "favourite_tour": self.favourite_tour,
-            "completed": self.completed,
             "filters": self.filters,
+            "stops": self.stops,
         }
 
 
@@ -51,7 +51,6 @@ class TourRepository:
                 tour_desc text,
                 tour_front_image varchar,
                 favourite_tour bool,
-                completed bool,
                 filters varchar
                 );
 
@@ -84,7 +83,6 @@ class TourRepository:
                 tour_desc=item["tour_desc"],
                 tour_front_image=item["tour_front_image"],
                 favourite_tour=item["favourite_tour"],
-                completed=item["completed"],
                 filters=json.loads(item["filters"]),
             )
             tours.append(tour)
@@ -97,8 +95,7 @@ class TourRepository:
                 tour_desc,
                 tour_front_image,
                 favourite_tour,
-                completed,
-                filters) values (:tour_id, :tour_name, :tour_desc, :tour_front_image, :favourite_tour, :completed, :filters)"""
+                filters) values (:tour_id, :tour_name, :tour_desc, :tour_front_image, :favourite_tour, :filters)"""
         conn = self.create_conn()
         cursor = conn.cursor()
         cursor.execute(
@@ -109,7 +106,6 @@ class TourRepository:
                 "tour_desc": tour.tour_desc,
                 "tour_front_image": tour.tour_front_image,
                 "favourite_tour": tour.favourite_tour,
-                "completed": tour.completed,
                 "filters": json.dumps(tour.filters),
             },
         )
