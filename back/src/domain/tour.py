@@ -29,7 +29,27 @@ class Tour:
             "tour_front_image": self.tour_front_image,
             "favourite_tour": self.favourite_tour,
             "filters": self.filters,
-            "stops": self.stops,
+            "stops": self.stops if self.stops else [],
+        }
+
+
+class TourStop:
+    def __init__(
+        self, stop_id, stop_name, stop_description, before_picture, after_picture
+    ):
+        self.stop_id = stop_id
+        self.stop_name = stop_name
+        self.stop_description = stop_description
+        self.before_picture = before_picture
+        self.after_picture = after_picture
+
+    def to_dict(self):
+        return {
+            "stop_id": self.stop_id,
+            "stop_name": self.stop_name,
+            "stop_description": self.stop_description,
+            "before_picture": self.before_picture,
+            "after_picture": self.after_picture,
         }
 
 
@@ -57,9 +77,17 @@ class TourRepository:
                 CREATE TABLE if not exists prepared_tour (
                 tour_id varchar,
                 stop_id varchar,
-                FOREIGN KEY (tour_id) REFERENCES tours(tour_id),
-                FOREIGN KEY (stop_id) REFERENCES tour_stops(stop_id)
-                )
+                FOREIGN KEY ("tour_id") REFERENCES "tours"("tour_id"),
+                FOREIGN KEY ("stop_id") REFERENCES "tour_stops"("stop_id")
+                );
+
+                CREATE TABLE if not exists tour_stops (
+                stop_id varchar PRIMARY KEY,
+                stop_name varchar,
+                stop_description varchar,
+                before_picture varchar,
+                after_picture varchar
+                ) 
                 """
         conn = self.create_conn()
         cursor = conn.cursor()
@@ -108,5 +136,103 @@ class TourRepository:
                 "favourite_tour": tour.favourite_tour,
                 "filters": json.dumps(tour.filters),
             },
+        )
+        conn.commit()
+
+    def get_tour_by_id(self, tour_id):
+        sql = """SELECT * FROM tours WHERE tour_id=:tour_id"""
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(sql, {"tour_id": tour_id})
+        data = cursor.fetchone()
+        tour = Tour(
+            tour_id=data["tour_id"],
+            tour_name=data["tour_name"],
+            tour_desc=data["tour_desc"],
+            tour_front_image=data["tour_front_image"],
+            favourite_tour=data["favourite_tour"],
+            filters=json.loads(data["filters"]),
+            stops=self.get_stops_by_tour_id(tour_id),
+        )
+
+        return tour
+
+    def save_tour_stops_to_tour(self, tour_id, stops):
+        sql = """
+        DELETE from prepared_tour WHERE tour_id = :tour_id
+        """
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(
+            sql,
+            {"tour_id": tour_id},
+        )
+        conn.commit()
+        sql_prepared_tour = """INSERT INTO prepared_tour (tour_id, stop_id) VALUES (:tour_id, :stop_id)"""
+
+        for stop in stops:
+            cursor.execute(sql_prepared_tour, {"tour_id": tour_id, "stop_id": stop})
+        conn.commit()
+        conn.close()
+
+    def get_stops_by_tour_id(self, tour_id):
+
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        sql = """SELECT tour_stops.stop_id,tour_stops.stop_name, tour_stops.stop_description, tour_stops.before_picture, tour_stops.after_picture
+                FROM prepared_tour
+                INNER JOIN tours USING (tour_id)
+                INNER JOIN tour_stops USING (stop_id)
+                WHERE tour_id = :tour_id
+            """
+        cursor.execute(sql, {"tour_id": tour_id})
+        stops = cursor.fetchall()
+        stops_list = []
+
+        for stop in stops:
+
+            tour_stop = TourStop(
+                stop_id=stop["stop_id"],
+                stop_name=stop["stop_name"],
+                stop_description=stop["stop_description"],
+                before_picture=stop["before_picture"],
+                after_picture=stop["after_picture"],
+            )
+
+            stop_dict = tour_stop.to_dict()
+            stops_list.append(stop_dict)
+
+        conn.close()
+        return stops_list
+
+    def get_all_stops(self):
+        sql = """ SELECT * FROM tour_stops """
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(sql)
+
+        data = cursor.fetchall()
+
+        tour_stops = []
+
+        for item in data:
+            tour_stop = TourStop(**item)
+            tour_stops.append(tour_stop)
+        return tour_stops
+
+    def save_tour_stop(self, tour_stop):
+        sql = """
+                INSERT into tour_stops
+                (stop_id,
+                stop_name,
+                stop_description,
+                before_picture,
+                after_picture) values (:stop_id, :stop_name, :stop_description, :before_picture, :after_picture)
+                """
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(
+            sql,
+            tour_stop.to_dict(),
         )
         conn.commit()
