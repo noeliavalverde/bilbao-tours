@@ -35,13 +35,27 @@ class Tour:
 
 class TourStop:
     def __init__(
-        self, stop_id, stop_name, stop_description, before_picture, after_picture
+        self,
+        stop_id,
+        stop_name,
+        stop_description,
+        before_picture,
+        before_figcaption,
+        before_alt_text,
+        after_picture,
+        after_figcaption,
+        after_alt_text,
     ):
+
         self.stop_id = stop_id
         self.stop_name = stop_name
         self.stop_description = stop_description
         self.before_picture = before_picture
+        self.before_figcaption = before_figcaption
+        self.before_alt_text = before_alt_text
         self.after_picture = after_picture
+        self.after_figcaption = after_figcaption
+        self.after_alt_text = after_alt_text
 
     def to_dict(self):
         return {
@@ -49,7 +63,11 @@ class TourStop:
             "stop_name": self.stop_name,
             "stop_description": self.stop_description,
             "before_picture": self.before_picture,
+            "before_figcaption": self.before_figcaption,
+            "before_alt_text": self.before_alt_text,
             "after_picture": self.after_picture,
+            "after_figcaption": self.after_figcaption,
+            "after_alt_text": self.after_alt_text,
         }
 
 
@@ -86,7 +104,11 @@ class TourRepository:
                 stop_name varchar,
                 stop_description varchar,
                 before_picture varchar,
-                after_picture varchar
+                before_figcaption varchar,
+                before_alt_text,
+                after_picture varchar,
+                after_figcaption varchar,
+                after_alt_text
                 ) 
                 """
         conn = self.create_conn()
@@ -179,7 +201,15 @@ class TourRepository:
 
         conn = self.create_conn()
         cursor = conn.cursor()
-        sql = """SELECT tour_stops.stop_id,tour_stops.stop_name, tour_stops.stop_description, tour_stops.before_picture, tour_stops.after_picture
+        sql = """SELECT tour_stops.stop_id,
+                        tour_stops.stop_name, 
+                        tour_stops.stop_description, 
+                        tour_stops.before_picture, 
+                        tour_stops.before_figcaption, 
+                        tour_stops.before_alt_text, 
+                        tour_stops.after_picture, 
+                        tour_stops.after_figcaption, 
+                        tour_stops.after_alt_text
                 FROM prepared_tour
                 INNER JOIN tours USING (tour_id)
                 INNER JOIN tour_stops USING (stop_id)
@@ -196,7 +226,11 @@ class TourRepository:
                 stop_name=stop["stop_name"],
                 stop_description=stop["stop_description"],
                 before_picture=stop["before_picture"],
+                before_figcaption=stop["before_figcaption"],
+                before_alt_text=stop["before_alt_text"],
                 after_picture=stop["after_picture"],
+                after_figcaption=stop["after_figcaption"],
+                after_alt_text=stop["after_alt_text"],
             )
 
             stop_dict = tour_stop.to_dict()
@@ -227,7 +261,19 @@ class TourRepository:
                 stop_name,
                 stop_description,
                 before_picture,
-                after_picture) values (:stop_id, :stop_name, :stop_description, :before_picture, :after_picture)
+                before_figcaption,
+                before_alt_text,
+                after_picture,
+                after_figcaption,
+                after_alt_text) values (:stop_id, 
+                                        :stop_name, 
+                                        :stop_description, 
+                                        :before_picture, 
+                                        :before_figcaption, 
+                                        :before_alt_text,
+                                        :after_picture, 
+                                        :after_figcaption,
+                                        :after_alt_text)
                 """
         conn = self.create_conn()
         cursor = conn.cursor()

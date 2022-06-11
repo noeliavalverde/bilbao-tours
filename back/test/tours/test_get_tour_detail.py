@@ -33,24 +33,6 @@ def test_should_return_tour_by_id_without_stops():
     tour_repository.save_tour(tour1)
     tour_repository.save_tour(tour2)
 
-    tour_stop1 = TourStop(
-        stop_id="stop_001",
-        stop_name="Primera parada",
-        stop_description="Esta debe ser la descripción de la primera parada",
-        before_picture="esto debe ser una url con imagen pasado",
-        after_picture="esto debe ser una url con imagen presente",
-    )
-    tour_stop2 = TourStop(
-        stop_id="stop_002",
-        stop_name="Segunda parada",
-        stop_description="Esta debe ser la descripción de la segunda parada",
-        before_picture="esto debe ser una url con imagen pasado",
-        after_picture="esto debe ser una url con imagen presente",
-    )
-
-    tour_repository.save_tour_stop(tour_stop1)
-    tour_repository.save_tour_stop(tour_stop2)
-
     response = client.get("/api/tours/1")
 
     assert response.json == {
@@ -77,22 +59,7 @@ def test_should_return_tour_by_id_with_stops():
         tour_front_image="https://www.bilbao.bi/bilbao.jpg",
         favourite_tour=0,
         filters=["arquitecture", "history", "monuments"],
-        stops=[
-            {
-                "stop_id": "stop_001",
-                "stop_name": "Primera parada",
-                "stop_description": "Esta debe ser la descripción de la primera parada",
-                "before_picture": "esto debe ser una url con imagen pasado",
-                "after_picture": "esto debe ser una url con imagen presente",
-            },
-            {
-                "stop_id": "stop_00",
-                "stop_name": "Tercera parada",
-                "stop_description": "Esta debe ser la descripción de la tercera parada",
-                "before_picture": "esto debe ser una url con imagen pasado",
-                "after_picture": "esto debe ser una url con imagen presente",
-            },
-        ],
+        stops=[],
     )
 
     tour_repository.save_tour(tour1)
@@ -102,21 +69,33 @@ def test_should_return_tour_by_id_with_stops():
         stop_name="Primera parada",
         stop_description="Esta debe ser la descripción de la primera parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
     tour_stop2 = TourStop(
         stop_id="stop_002",
         stop_name="Segunda parada",
         stop_description="Esta debe ser la descripción de la segunda parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
     tour_stop3 = TourStop(
         stop_id="stop_003",
         stop_name="Tercera parada",
         stop_description="Esta debe ser la descripción de la tercera parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
 
     tour_repository.save_tour_stop(tour_stop1)
@@ -139,14 +118,22 @@ def test_should_return_tour_by_id_with_stops():
                 "stop_name": "Primera parada",
                 "stop_description": "Esta debe ser la descripción de la primera parada",
                 "before_picture": "esto debe ser una url con imagen pasado",
+                "before_figcaption": "Figcaption foto antigua",
+                "before_alt_text": "alt text foto antigua",
                 "after_picture": "esto debe ser una url con imagen presente",
+                "after_figcaption": "figcaption actual - actual",
+                "after_alt_text": "text alt actual",
             },
             {
                 "stop_id": "stop_002",
                 "stop_name": "Segunda parada",
                 "stop_description": "Esta debe ser la descripción de la segunda parada",
                 "before_picture": "esto debe ser una url con imagen pasado",
+                "before_figcaption": "Figcaption foto antigua",
+                "before_alt_text": "alt text foto antigua",
                 "after_picture": "esto debe ser una url con imagen presente",
+                "after_figcaption": "figcaption actual - actual",
+                "after_alt_text": "text alt actual",
             },
         ],
     }

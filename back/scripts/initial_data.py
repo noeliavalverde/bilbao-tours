@@ -29,7 +29,11 @@ def main():
         stop_name="Ejemplo de primera parada",
         stop_description="Esta es un ejemplo de descripción de la primera parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
 
     tour_stop_example2 = TourStop(
@@ -37,7 +41,11 @@ def main():
         stop_name="Ejemplo de segunda parada",
         stop_description="Esta es un ejemplo de descripción de la segunda parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
 
     tour_stop_example3 = TourStop(
@@ -45,7 +53,11 @@ def main():
         stop_name="Ejemplo de tercera parada",
         stop_description="Esta es un ejemplo de descripción de la tercera parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
 
     tour_stop_example4 = TourStop(
@@ -53,7 +65,11 @@ def main():
         stop_name="Ejemplo de cuarta parada",
         stop_description="Esta es un ejemplo de descripción de la cuarta parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
 
     tour_stop_example5 = TourStop(
@@ -61,7 +77,11 @@ def main():
         stop_name="Ejemplo de quinta parada",
         stop_description="Esta es un ejemplo de descripción de la quinta parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
 
     tour_stop_example6 = TourStop(
@@ -69,7 +89,11 @@ def main():
         stop_name="Ejemplo de sexta parada",
         stop_description="Esta es un ejemplo de descripción de la sexta parada",
         before_picture="esto debe ser una url con imagen pasado",
+        before_figcaption="Figcaption foto antigua",
+        before_alt_text="alt text foto antigua",
         after_picture="esto debe ser una url con imagen presente",
+        after_figcaption="figcaption actual - actual",
+        after_alt_text="text alt actual",
     )
 
     tour_repository = TourRepository(database_path)
