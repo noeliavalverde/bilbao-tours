@@ -12,7 +12,6 @@
         </section>
     </article>
 
-    <pre>{{$data}}</pre>
   </div>
 </template>
 

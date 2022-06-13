@@ -16,6 +16,21 @@ const routes = [
     name: 'TourDetailPage',
     component: () => import('@/pages/tour-detail/TourDetailPage.vue'),
   },
+  {
+    path: '/admin',
+    name: 'adminLoginPage',
+    component: () => import('@/pages/login/adminLoginPage.vue'),
+  },
+  {
+    path: '/admin/manage-tours',
+    name: 'adminPage',
+    component: () => import('@/pages/admin/adminPage.vue'),
+  },
+  {
+    path: '/admin/manage-tours/:tour_id',
+    name: 'AdminDetailPage',
+    component: () => import('@/pages/adminDetail/AdminDetailPage.vue'),
+  },
 ]
 
 const router = createRouter({

@@ -12,3 +12,16 @@ export async function getTours(){
     return tours;
 
 }
+
+export async function getTourDetail(tourId){
+    const settings = {
+        method: "GET",
+        headers: {
+            Authorization: "Bearer",
+        },
+    };
+    const response = await fetch(`${config.API_PATH}/tours/${tourId}`, settings);
+    return await response.json();
+    
+
+}
