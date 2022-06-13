@@ -4,6 +4,7 @@ def main():
     sys.path.insert(0, "")
 
     from src.domain.tour import Tour, TourRepository, TourStop
+    from src.domain.user import User, UserRepository
 
     database_path = "data/database.db"
 
@@ -107,6 +108,11 @@ def main():
     tour_repository.save_tour_stop(tour_stop_example5)
     tour_repository.save_tour_stop(tour_stop_example6)
     tour_repository.save_tour_stops_to_tour("tour_001", ["stop_006", "stop_002"])
+
+    user_repository = UserRepository(database_path)
+
+    user_repository.save(User(id="user-1", name="admin-1", password="12345"))
+    user_repository.save(User(id="user-2", name="admin-2", password="54321"))
 
 
 if __name__ == "__main__":
