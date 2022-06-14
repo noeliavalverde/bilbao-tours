@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_cors import CORS
 
 from src.lib.utils import object_to_json
+from src.domain.tour import Tour
 
 
 def create_app(repositories):
@@ -26,6 +27,13 @@ def create_app(repositories):
     def tour_detail_get(tour_id):
         tour_detail = repositories["tours"].get_tour_by_id(tour_id)
         return object_to_json(tour_detail)
+
+    @app.route("/api/tours", methods=["POST"])
+    def tours_post():
+        body = request.json
+        tour = Tour(**body)
+        repositories["tours"].save_tour(tour)
+        return ""
 
     @app.route("/api/users", methods=["GET"])
     def users_get_all():
