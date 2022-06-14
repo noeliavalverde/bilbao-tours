@@ -5,8 +5,6 @@ from src.webserver import create_app
 
 from src.domain.tour import TourRepository, Tour, TourStop
 
-# from src.domain.stops import TourStop, TourStopRepository
-
 
 def test_should_return_empty_list_of_tour_stops():
     tour_stop_repository = TourRepository(temp_file())
