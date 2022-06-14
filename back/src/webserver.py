@@ -42,4 +42,9 @@ def create_app(repositories):
 
         return user.to_dict(), 200
 
+    @app.route("/api/tours/<tour_id>", methods=["DELETE"])
+    def tour_delete(tour_id):
+        tour_to_delete = repositories["tours"].delete_tour_by_id(tour_id)
+        return ""
+
     return app
