@@ -29,7 +29,12 @@ const routes = [
   {
     path: '/admin/manage-tours/:tour_id',
     name: 'AdminDetailPage',
-    component: () => import('@/pages/adminDetail/AdminDetailPage.vue'),
+    component: () => import('@/pages/admin-detail/AdminDetailPage.vue'),
+  },
+  {
+    path: '/admin/manage-tours/add-tour',
+    name: 'AddTourPage',
+    component: () => import('@/pages/add-tour/AddTourPage.vue')
   },
 ]
 
