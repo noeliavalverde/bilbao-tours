@@ -3,7 +3,7 @@
     
     <div class="background-cover">
       <main>
-        <img src="@/assets/img/logo-b-tours.png" alt="logo B Tours">
+        <img src="@/assets/img/logo-white.png" alt="logo B Tours">
         <h1>Visita el pasado y el presente de Bilbao</h1>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
           Repellat maxime nam similique explicabo sint quidem, est rem 
@@ -62,6 +62,8 @@ export default {
   padding: 2.3em 1em;
   width: 100%;
   color:antiquewhite;
+  max-width: 500px; 
+
 }
 .home-page img{
   width: 40%;
@@ -78,7 +80,7 @@ export default {
 }
 .home-page .home-btn{
   border: 1px solid antiquewhite;
-  background-color: antiquewhite;
+  background-color: rgb(250, 235, 215);
   text-transform: uppercase;
   color: rgb(4, 4, 76);
   margin-top: 1.8em;
@@ -93,13 +95,7 @@ export default {
 
 }
 
-@media (min-width: 550px){
-  .home-page main{
 
-   max-width: 500px; 
-  }
-
-}
 
 
 </style>
