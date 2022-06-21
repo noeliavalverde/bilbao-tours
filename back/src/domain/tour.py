@@ -134,13 +134,14 @@ class TourRepository:
                 tour_front_image=item["tour_front_image"],
                 favourite_tour=item["favourite_tour"],
                 filters=json.loads(item["filters"]),
+                stops=self.get_stops_by_tour_id(item["tour_id"]),
             )
             tours.append(tour)
 
         return tours
 
     def save_tour(self, tour):
-        sql = """INSERT into tours (tour_id,
+        sql = """INSERT OR REPLACE into tours (tour_id,
                 tour_name,
                 tour_desc,
                 tour_front_image,
