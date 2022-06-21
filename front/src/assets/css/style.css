@@ -23,6 +23,9 @@ a{
   color: inherit;
  
 }
+li{
+  list-style: none;
+}
 .container{
   width:100%;
   min-height: 100vh;

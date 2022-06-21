@@ -1,5 +1,5 @@
 <template>
-  <div class="tour-detail-page">
+  <div class="tour-detail-page container">
 
   
   <h2>Nombre ruta: {{tour.tour_name}}</h2>
@@ -57,9 +57,31 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  background-color: rgb(181, 178, 178);
+  
 
+}
 .stop-wrapper{
   margin-bottom: 2em;
+}
+.detail-header h2{
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  text-align: center;
+  padding: 1em 0;
+  background-color: rgb(6, 2, 46);
+  color: rgb(181, 178, 178);
+}
+.detail-header h3{
+  padding: 2em;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.detail-main{
+  padding: 2em;
 }
 
 </style>
