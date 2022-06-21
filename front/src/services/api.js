@@ -1,6 +1,21 @@
 import config from "@/config.js";
 import { v4 as uuidv4 } from "uuid";
 
+
+function getUserId() {
+    const userJson = localStorage.getItem("auth");
+    const user = JSON.parse(userJson);
+    return user.id;
+  }
+  
+// function getAccessToken() {
+//     const jwtJson = localStorage.getItem("auth");
+//     const jwt = JSON.parse(jwtJson);
+//     return jwt.access_token;
+//   }
+  
+
+
 export async function getTours(){
     const settings = {
         method: "GET",
@@ -49,9 +64,25 @@ export async function addTour(tour){
       body: JSON.stringify(tour),
       headers: {
         "Content-Type": "application/json",
+        Authorization: getUserId(),
         
       },
     };
+    
     await fetch(`${config.API_PATH}/tours`, settings);
+    console.log(tour.tour_id)
+  
+  }
+
+  export async function modifyTour(tour) {
+    const settings = {
+      method: "PUT",
+      body: JSON.stringify(tour),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getUserId(),
+      },
+    };
+    await fetch(`${config.API_PATH}/tours/${tour.tour_id}`, settings);
   }
   

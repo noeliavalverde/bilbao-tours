@@ -23,8 +23,8 @@ const routes = [
   },
   {
     path: '/admin/manage-tours',
-    name: 'adminPage',
-    component: () => import('@/pages/admin/adminPage.vue'),
+    name: 'AdminPage',
+    component: () => import('@/pages/admin/AdminPage.vue'),
   },
   {
     path: '/admin/manage-tours/:tour_id',
@@ -35,6 +35,11 @@ const routes = [
     path: '/admin/manage-tours/add-tour',
     name: 'AddTourPage',
     component: () => import('@/pages/add-tour/AddTourPage.vue')
+  },
+  {
+    path: '/admin/manage-tours/modify-tour/:tour_id',
+    name: 'ModifyTourPage',
+    component: () => import('@/pages/modify-tour/ModifyTourPage.vue')
   },
 ]
 
