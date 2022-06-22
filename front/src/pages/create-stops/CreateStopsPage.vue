@@ -1,7 +1,7 @@
 <template>
-  <div class="add-tours-page container">
-    <section class="add-tour-form">
-      <h1>Añadir nueva visita</h1>
+  <div class="add-stop-page container">
+    <section class="add-stop-form">
+      <h2>Añadir nueva visita</h2>
       <form>
       <label for="stop-name">Nombre de la vista</label>
       <input type="text" id="stop-name" v-model="stop.stop_name">
@@ -92,3 +92,51 @@ export default {
 }
 
 </script>
+
+<style scoped>
+
+.add-stop-form{
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  width: 85%;
+  margin: 4em auto;
+}
+
+.add-stop-form h2{
+  margin-bottom: 0.6em;
+}
+
+.add-stop-form form{
+  display: flex;
+  flex-direction: column;
+  
+}
+.add-stop-form .btn{
+  align-self: center;
+  margin-top: 2em;
+  color: rgb(243, 245, 249);
+  background-color: rgb(2, 2, 22);
+  padding: 0.6em 0.7em;
+  border: 1px solid rgb(2, 2, 22);; 
+  font-weight: bold;
+  font-size: 0.8em;
+}
+.add-stop-form .btn:hover{
+  color: rgb(2, 2, 22);
+  background-color: rgb(243, 245, 249);
+}
+.add-stop-form input, textarea{
+  padding: 0.4em;
+}
+
+@media (min-width:800px){
+
+ .add-stop-form{
+   max-width: 750px;
+ }
+
+}
+
+</style>

@@ -1,7 +1,7 @@
 <template>
   <div class="add-tours-page container">
     <section class="add-tour-form">
-      <h1>Añadir nuevo tour</h1>
+      <h2>Añadir nuevo tour</h2>
       <form>
       <label for="tour-name">Nombre del tour</label>
       <input type="text" id="tour-name" v-model="tour.tour_name">
@@ -94,9 +94,11 @@ export default {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 85%;
-  
- 
 }
+.add-tour-form h2{
+  margin-bottom: 0.6em;
+}
+
 .add-tour-form form{
   display: flex;
   flex-direction: column;
