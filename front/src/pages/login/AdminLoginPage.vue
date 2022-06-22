@@ -89,14 +89,15 @@ export default {
 .login-page label{
   font-weight: bold;
 }
-.login-page button{
+.login-page .btn{
   align-self: center;
   background-color: rgba(32,12,70);
   color: rgb(192, 197, 208);
   font-weight: bold;
   border: 1px solid rgba(32,12,70);
+  padding: 0.4em 0.6em;
 }
-.login-page button:hover{
+.login-page .btn:hover{
   
   background-color: rgb(192, 197, 208);
   color: rgba(32,12,70);
