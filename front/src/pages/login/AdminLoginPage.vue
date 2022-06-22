@@ -30,13 +30,13 @@ export default {
     
       const response = await login(this.user, this.password);
       const loginStatus = response.status;
-      console.log("response", response);
+      
 
       if (loginStatus === 401) {
         alert("unauthorized");
       } else {
         const auth = await response.json();
-        console.log("auth", auth);
+        
 
         this.auth = auth;
         this.$router.push('/admin/manage-tours');

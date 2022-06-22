@@ -60,7 +60,7 @@ export default {
     },
 
     async removeTour(tour) {
-      console.log(tour)
+      
       this.tour = await deleteTour(tour);
       location.reload(true);
   

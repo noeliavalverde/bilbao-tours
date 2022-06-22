@@ -116,7 +116,7 @@ export async function addTour(tour){
         Authorization: getUserId(),
       },
     };
-   console.log("estos son settings" + JSON.stringify(settings))
+   
     await fetch(`${config.API_PATH}/add-stops/${tour_id}`, settings);
     
   }
