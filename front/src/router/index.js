@@ -18,8 +18,8 @@ const routes = [
   },
   {
     path: '/admin',
-    name: 'adminLoginPage',
-    component: () => import('@/pages/login/adminLoginPage.vue'),
+    name: 'AdminLoginPage',
+    component: () => import('@/pages/login/AdminLoginPage.vue'),
   },
   {
     path: '/admin/manage-tours',
@@ -40,6 +40,16 @@ const routes = [
     path: '/admin/manage-tours/modify-tour/:tour_id',
     name: 'ModifyTourPage',
     component: () => import('@/pages/modify-tour/ModifyTourPage.vue')
+  },
+  {
+    path: '/admin/manage-tours/add-tour-stops/:tour_id',
+    name: 'AddTourStopsPage',
+    component: () => import('@/pages/add-stops/AddTourStopsPage.vue')
+  },
+  {
+    path: '/admin/manage-tours/create-stops',
+    name: 'CreateStopsPage',
+    component: () => import('@/pages/create-stops/CreateStopsPage.vue')
   },
 ]
 

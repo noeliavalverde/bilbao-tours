@@ -29,6 +29,19 @@ export async function getTours(){
 
 }
 
+export async function getTourStops(){
+  const settings = {
+      method: "GET",
+      headers: {
+          Authorization: "Bearer",
+      },
+  };
+  const response = await fetch(`${config.API_PATH}/tour-stops`, settings);
+  const tour_stops = await response.json();
+  return tour_stops;
+
+}
+
 export async function getTourDetail(tourId){
     const settings = {
         method: "GET",
@@ -70,8 +83,42 @@ export async function addTour(tour){
     };
     
     await fetch(`${config.API_PATH}/tours`, settings);
-    console.log(tour.tour_id)
+    
   
+  }
+  export async function addStop(stop){
+
+    stop.stop_id = uuidv4();
+   
+    const settings = {
+      method: "POST",
+      body: JSON.stringify(stop),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getUserId(),
+        
+      },
+    };
+    
+    await fetch(`${config.API_PATH}/tour-stops`, settings);
+    
+  
+  }
+
+  export async function addTourStops(tour_id, stops){
+     
+    const settings = {
+      method: "POST",
+      body: JSON.stringify({"tour_id":tour_id, "stops": stops}),
+      
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: getUserId(),
+      },
+    };
+   console.log("estos son settings" + JSON.stringify(settings))
+    await fetch(`${config.API_PATH}/add-stops/${tour_id}`, settings);
+    
   }
 
   export async function modifyTour(tour) {

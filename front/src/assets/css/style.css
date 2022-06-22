@@ -35,9 +35,9 @@ li{
   cursor: pointer;
   user-select: none;
   width: fit-content;
-  padding: 0.5em 0.7em;
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 1em;
+  
 }
 
 #nav {
@@ -51,4 +51,9 @@ li{
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+a{
+  padding: 0.5em 0.7em;
+  display: block;
 }
