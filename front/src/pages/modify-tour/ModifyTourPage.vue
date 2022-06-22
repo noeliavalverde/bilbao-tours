@@ -106,6 +106,7 @@ export default {
 .modify-form .filters-box{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .modify-form .filters-box p{
   width: 100%;
@@ -116,11 +117,24 @@ export default {
   
 }
 .modify-form .btn{
-  align-self: center;
   margin-top: 2em;
+  align-self: center;
+  background-color: rgba(32,12,70);
+  color: rgb(192, 197, 208);
+  font-weight: bold;
+  border: 1px solid rgba(32,12,70);
+  padding: 0.4em 0.6em;
+}
+.modify-form .btn:hover{
+  background-color: rgb(192, 197, 208);
+  color: rgba(32,12,70);
 }
 .modify-form input, textarea{
   padding: 0.6em;
+  
+}
+.modify-form textarea{
+  min-height: 10em;
   
 }
 
