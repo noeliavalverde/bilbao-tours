@@ -4,7 +4,7 @@
 
 ```
 npm install
-npm install --save @vueuse/core
+
 ```
 
 ### Ejecutar servidor de desarrollo
