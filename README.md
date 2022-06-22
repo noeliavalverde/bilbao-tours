@@ -12,3 +12,5 @@ Aplicación programada en:
   - Backend: <pre> Python 
   - Frontend: <pre> Vue (JavaScript)
   - BBDD: <pre> sqlite
+
+##### En las carpetas back y front se encuentran los requerimientos para arrancar la aplicación.
