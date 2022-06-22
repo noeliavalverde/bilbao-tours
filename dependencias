@@ -1,5 +1,0 @@
---->FONT AWESOME
-
-
-npm i --save @fortawesome/fontawesome-svg-core   
-npm i --save @fortawesome/free-solid-svg-icons

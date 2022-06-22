@@ -1,10 +1,10 @@
-# Aplicación semilla (front)
+# Frontend B-Tours
 
 ## Configuración del proyecto
 
 ```
 npm install
-npm install --save @vueuse/core
+
 ```
 
 ### Ejecutar servidor de desarrollo

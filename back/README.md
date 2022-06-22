@@ -1,4 +1,4 @@
-# Aplicación semilla (backend)
+# Backend B-Tours
 
 ## Puesta en marcha
 
