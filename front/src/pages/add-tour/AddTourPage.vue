@@ -1,5 +1,6 @@
 <template>
   <div class="add-tours-page container">
+    <router-link to="/admin/manage-tours" class="back-link"> ⇐ Volver a lista de tours</router-link>
     <section class="add-tour-form">
       <h2>Añadir nuevo tour</h2>
       <form>
@@ -84,6 +85,14 @@ export default {
 </script>
 
 <style scoped>
+.back-link{
+  text-decoration: underline;
+  text-align: right;
+  font-weight: 500;
+  font-size: 1em;
+  margin: 1.4em;
+}
+
 .add-tour-form{
   background-color: lightgrey;
   display: flex;

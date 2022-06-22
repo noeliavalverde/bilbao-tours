@@ -1,5 +1,6 @@
 <template>
   <div class="add-stop-page container">
+    <router-link to="/admin/manage-tours" class="back-link"> ⇐ Volver a lista de tours</router-link>
     <section class="add-stop-form">
       <h2>Añadir nueva visita</h2>
       <form>
@@ -94,7 +95,12 @@ export default {
 </script>
 
 <style scoped>
-
+.back-link{
+  text-decoration: underline;
+  text-align: right;
+  font-weight: 500;
+  margin: 1em;
+}
 .add-stop-form{
   background-color: lightgrey;
   display: flex;

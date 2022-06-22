@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      <router-link to="/admin/manage-tours" class="back-link"> ⇐ Volver a lista de tours</router-link>
     <section class="modify-form">
       <h1>Modificar tour</h1>
       <form>
@@ -85,16 +86,19 @@ export default {
 </script>
 
 <style scoped>
+.back-link{
+  text-decoration: underline;
+  text-align: right;
+  font-weight: 500;
+  margin: 1em;
+}
 .modify-form{
   background-color: lightgrey;
   display: flex;
   flex-direction: column;
   padding: 1em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 85%;
+  margin: 0 auto;
   
  
 }
