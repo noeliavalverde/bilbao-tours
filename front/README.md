@@ -1,4 +1,4 @@
-# Aplicación semilla (front)
+# Frontend B-Tours
 
 ## Configuración del proyecto
 
