@@ -4,7 +4,10 @@
       <img src="@/assets/img/logo-b-tours.png" alt="logo b-tours app">
      
       
-      <router-link to="/admin/manage-tours/add-tour" class="btn add-tour-btn">Añadir nuevo tour</router-link>
+      <nav>
+        <router-link to="/admin/manage-tours/add-tour" class="btn">Añadir nuevo tour</router-link>
+        <router-link to="/admin/manage-tours/create-stops" class="btn">Crear visitas</router-link>
+      </nav>
        <h2>Gestionar tours</h2>
     </header>
     
@@ -21,8 +24,8 @@
           <button class="btn">
             <router-link :to="`/admin/manage-tours/modify-tour/${tour.tour_id}`">Modificar</router-link>
           </button>
-          <button class="btn">Añadir visitas</button>
-          <button class="btn" @click="removeTour(tour)">Eliminar</button>
+          <button class="btn"><router-link :to="`/admin/manage-tours/add-tour-stops/${tour.tour_id}`">Añadir visitas</router-link></button>
+          <button class="btn remove-btn" @click="removeTour(tour)">Eliminar</button>
           <button class="btn">
             <router-link :to="`/admin/manage-tours/${tour.tour_id}`" >Ver detalle</router-link>
           </button>
@@ -74,13 +77,29 @@ export default {
   padding: 3em;
 
 }
+.tours-list-page nav{
+  display: flex;
+  flex-direction: column;
+  
+}
+.tours-list-page nav .btn{
+  width: 100%;
+  margin-bottom: 0.6em;
+  text-align: center;
+  
+}
+.tours-list-page nav a{
+  padding: 0.2em 0.4em;
+  font-weight: normal;
+  
+}
 
 .tours-list-page header{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   
 }
 .tours-list-page header h2{
@@ -90,7 +109,8 @@ export default {
   color:rgba(32,12,70);
 }
 .tours-list-page img{
- width: 20%;  
+ width: 20%;
+ min-width: 100px;  
 }
 
 .tour-index-box{
@@ -99,13 +119,18 @@ export default {
   background-color: rgb(243, 245, 249);
   margin-bottom: 1.5em;
 }
-
+.remove-btn{
+  padding: 0.5em 0.7em;
+}
 .btn{
   background-color: rgba(32,12,70);
   color: rgb(192, 197, 208);
-  font-weight: bold;
   border: 1px solid rgba(32,12,70);
+  font-weight: bold;
+  
 }
+
+
 .btn:hover{
   
   background-color: rgb(192, 197, 208);

@@ -105,6 +105,7 @@ export default {
 .add-tour-form .filters-box{
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .add-tour-form .filters-box p{
   width: 100%;
@@ -116,7 +117,18 @@ export default {
 .add-tour-form .btn{
   align-self: center;
   margin-top: 2em;
+  color: rgb(243, 245, 249);
+  background-color: rgb(2, 2, 22);
+  padding: 0.6em 0.7em;
+  border: 1px solid rgb(2, 2, 22);; 
+  font-weight: bold;
+  font-size: 0.8em;
 }
+.add-tour-form .btn:hover{
+  color: rgb(2, 2, 22);
+  background-color: rgb(243, 245, 249);
+}
+
 .add-tour-form input, textarea{
   padding: 0.6em;
 }
