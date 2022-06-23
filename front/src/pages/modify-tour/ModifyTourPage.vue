@@ -86,6 +86,11 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  width:100%;
+  min-height: 100vh;
+  
+}
 .back-link{
   text-decoration: underline;
   text-align: right;

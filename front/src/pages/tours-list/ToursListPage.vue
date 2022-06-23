@@ -41,7 +41,7 @@ export default {
 <style scoped>
 .container{
   background-color: rgb(181, 178, 178);
-  
+  min-height: 100vh;
 }
 img{
   display: block;
@@ -65,6 +65,7 @@ img{
 
 .tour-index-box{
   position: relative;
+  height: 100%;
   
 }
 
