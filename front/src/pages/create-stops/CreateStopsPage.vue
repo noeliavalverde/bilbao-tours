@@ -11,7 +11,7 @@
       <textarea id="stop-description" v-model="stop.stop_description">Escriba aquí la descripción de la visita</textarea>
       <br />
       <label for="before-image">Foto antigua</label>
-      <input type="text" v-model="stop.before_picture" id="before-image">
+      <input type="file"  @change="setPastImage" accept="image/*" id="before-image">
       <br />
       <label for="before-figcaption">Leyenda foto antigua</label>
       <input type="text" id="before-figcaption" v-model="stop.before_figcaption">
@@ -20,7 +20,7 @@
       <input type="text" id="before-alt-text" v-model="stop.before_alt_text">
       <br />
       <label for="after-image">Foto actual</label>
-      <input type="text" v-model="stop.after_picture" id="after-image">
+      <input type="file"  @change="setPresentImage" accept="image/*" id="after-image">
       <br />
       <label for="after-figcaption">Leyenda foto actual</label>
       <input type="text" id="after-figcaption" v-model="stop.after_figcaption">
@@ -59,13 +59,23 @@ export default {
  
   methods: {
 
+    setPastImage(ev){
+      console.log("set image", ev.target.files[0])
+      const reader = new FileReader()
+      reader.onload = (a) => {this.stop.before_picture = a.target.result}
+      reader.readAsDataURL(ev.target.files[0])
+    },
+    setPresentImage(ev){
+      console.log("set image", ev.target.files[0])
+      const reader = new FileReader()
+      reader.onload = (e) => {this.stop.after_picture = e.target.result}
+      reader.readAsDataURL(ev.target.files[0])
+    },
     
     isValidTourData() {
       if (
         this.stop.stop_name === "" ||
-        this.stop.stop_description === "" ||
-        this.stop.before_picture === "" ||
-        this.stop.after_picture === ""
+        this.stop.stop_description === "" 
       ) {
         return false;
       } else {

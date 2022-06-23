@@ -26,12 +26,6 @@
       </section>
     </main>
 
-    stop selected
-    <span>{{selectedStop}}</span><br>
-    stops añadidos
-     <pre><span>{{stops_list}}</span></pre>
-     <pre><span>data to send {{data_to_send}}</span></pre>
-
   </div>
 </template>
 
@@ -116,6 +110,10 @@ export default {
 .add-tour-stops-page{
   background-color: rgb(192, 197, 208);
   padding: 2em;
+  width: 95%;
+  max-width: 1150px;
+  margin: 3em auto;
+  
 }
 .add-tour-stops-page header h2{
   font-size: 1.5em;

@@ -11,7 +11,7 @@
       <textarea id="tour-description" v-model="tour.tour_desc">Escriba aquí la descripción del tour</textarea>
       <br />
       <label for="front-image">Foto de portada</label>
-      <input type="text" v-model="tour.tour_front_image" id="front-image">
+      <input type="file"  @change="setImage" accept="image/*" id="front-image">
       <br />
       <div class="filters-box">
         <p>Filtros: </p>
@@ -46,7 +46,13 @@ export default {
   },
  
   methods: {
-
+    setImage(ev){
+      console.log("set image", ev.target.files[0])
+      const reader = new FileReader()
+      reader.onload = (e) => {this.tour.tour_front_image = e.target.result}
+      reader.readAsDataURL(ev.target.files[0])
+    },
+  
     
     
     isValidTourData() {
@@ -85,6 +91,11 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  width:100%;
+  min-height: 100vh;
+  
+}
 .back-link{
   text-decoration: underline;
   text-align: right;

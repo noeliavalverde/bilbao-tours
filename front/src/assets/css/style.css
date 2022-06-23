@@ -10,8 +10,7 @@
 body {
   font-family: 'Alegreya Sans', sans-serif;
   font-size: 16px;
-  background: rgba(32,12,70,0.83);
-  background: linear-gradient(138deg,rgba(32,12,70,0.83) 10%, rgba(0,34,255,0.5) 80%);
+  background: rgba(11, 63, 176, 0.83);
   color: black;
   width: 100%;
 }

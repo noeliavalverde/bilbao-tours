@@ -67,7 +67,7 @@ export default {
      async removeTour(tour) {
       
       this.tour = await deleteTour(tour);
-      location.reload(true);
+      this.$router.push("/admin/manage-tours");
   
   },
 
