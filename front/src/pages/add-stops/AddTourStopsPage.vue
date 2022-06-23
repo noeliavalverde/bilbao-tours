@@ -19,12 +19,14 @@
       <section class="added-stops">
         <p>Visitas añadidas</p>
         <dl v-for="stop in stops_list" :key="stop.stop_id">
-          <dt>{{stop.stop_name}} <button class="btn">X</button></dt>
+          <dt>{{stop.stop_name}} <button class="btn" @click="deleteStops(stops_list, stop)">X</button></dt>
           <dd>{{stop.stop_description}}</dd>
         </dl>
          <button class="btn confirm-stops" @click.prevent="onSaveStopsClicked">Confirmar cambios</button>
       </section>
     </main>
+
+ 
 
   </div>
 </template>
@@ -74,6 +76,14 @@ export default {
       }
     
         
+    },
+    deleteStops(object, item){
+      
+      let indice = object.indexOf(item)
+      object.splice(indice,1)
+      
+      this.data_to_send.splice(indice, 1)
+      
     },
  
 
