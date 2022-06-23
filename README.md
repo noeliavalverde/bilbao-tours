@@ -5,6 +5,7 @@
 La apliación cuenta con dos perfiles de usuario:
   - Perfil público, accesible a cualquier usuario, en el que se entra a través de una página de inicio a un listado de todas las rutas disponibles.
   - Perfil de administrador, con un usuario y contraseña se accede a la plataforma de gestión de rutas, donde se pueden consultar, añadir rutas nuevas o modifcar las existentes.
+    Ruta: /admin
     Usuario: user-1,
     contraseña: 12345
 
