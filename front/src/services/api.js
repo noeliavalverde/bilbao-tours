@@ -61,7 +61,7 @@ export async function deleteTour(tour){
         method: "DELETE",
         headers: {
             Authorization: getUserId(),
-            "Content-Type": "application/json",
+            
         },
         });
     } else {

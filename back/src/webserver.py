@@ -46,6 +46,12 @@ def create_app(repositories):
         tour_detail = repositories["tours"].get_tour_by_id(tour_id)
         return object_to_json(tour_detail)
 
+    @app.route("/api/tour-stops/<stop_id>", methods=["GET"])
+    def stop_detail_get(stop_id):
+
+        stop_detail = repositories["tours"].get_stop_by_id(stop_id)
+        return object_to_json(stop_detail)
+
     @app.route("/api/tours", methods=["POST"])
     def tours_post():
         user_id = request.headers.get("Authorization")

@@ -180,6 +180,26 @@ class TourRepository:
 
         return tour
 
+    def get_stop_by_id(self, stop_id):
+        sql = """SELECT * FROM tour_stops WHERE stop_id=:stop_id"""
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(sql, {"stop_id": stop_id})
+        data = cursor.fetchone()
+        stop = TourStop(
+            stop_id=data["stop_id"],
+            stop_name=data["stop_name"],
+            stop_description=data["stop_description"],
+            before_picture=data["before_picture"],
+            before_figcaption=data["before_figcaption"],
+            before_alt_text=data["before_alt_text"],
+            after_picture=data["after_picture"],
+            after_figcaption=data["after_figcaption"],
+            after_alt_text=data["after_alt_text"],
+        )
+
+        return stop
+
     def save_tour_stops_to_tour(self, tour_id, stops):
         sql = """
         DELETE from prepared_tour WHERE tour_id = :tour_id
