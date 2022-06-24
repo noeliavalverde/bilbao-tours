@@ -36,9 +36,6 @@
 
   </div>
     
-    <pre>{{tour_stops}}</pre>
-    <h1>HOLA</h1>
-    
 </template>
 
 <script>
