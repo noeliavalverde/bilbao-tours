@@ -32,6 +32,11 @@ const routes = [
     component: () => import('@/pages/admin-detail/AdminDetailPage.vue'),
   },
   {
+    path: '/admin/manage-stops',
+    name: 'AdminStopsPage',
+    component: () => import('@/pages/admin-stops/AdminStopsPage.vue'),
+  },
+  {
     path: '/admin/manage-tours/add-tour',
     name: 'AddTourPage',
     component: () => import('@/pages/add-tour/AddTourPage.vue')

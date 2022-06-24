@@ -29,6 +29,7 @@ export async function getTours(){
 
 }
 
+
 export async function getTourStops(){
   const settings = {
       method: "GET",
@@ -59,13 +60,27 @@ export async function deleteTour(tour){
         await fetch(`${config.API_PATH}/tours/` + tour.tour_id, {
         method: "DELETE",
         headers: {
-            Authorization: localStorage.userId,
+            Authorization: getUserId(),
             "Content-Type": "application/json",
         },
         });
     } else {
         return "";
     }
+}
+export async function deleteStop(stop){ 
+
+  if (confirm("¿Está seguro de que quiere eliminar esta visita?")) {
+      await fetch(`${config.API_PATH}/tour-stops/` + stop.stop_id, {
+      method: "DELETE",
+      headers: {
+          Authorization: getUserId(),
+          "Content-Type": "application/json",
+      },
+      });
+  } else {
+      return "";
+  }
 }
 
 export async function addTour(tour){
