@@ -295,3 +295,15 @@ class TourRepository:
         conn.commit()
         conn.close()
         return ""
+
+    def delete_stop_by_id(self, stop_id):
+        sql = """
+                DELETE FROM tour_stops
+                WHERE tour_stops.stop_id = :stop_id
+        """
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(sql, {"stop_id": stop_id})
+        conn.commit()
+        conn.close()
+        return ""

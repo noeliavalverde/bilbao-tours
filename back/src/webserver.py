@@ -77,6 +77,13 @@ def create_app(repositories):
         tour_to_delete = repositories["tours"].delete_tour_by_id(tour_id)
         return ""
 
+    @app.route("/api/tour-stops/<stop_id>", methods=["DELETE"])
+    def stop_delete(stop_id):
+        user_id = request.headers.get("Authorization")
+
+        stop_to_delete = repositories["tours"].delete_stop_by_id(stop_id)
+        return ""
+
     @app.route("/api/tours/<tour_id>", methods=["PUT"])
     def tours_put(tour_id):
 
