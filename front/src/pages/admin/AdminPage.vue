@@ -5,8 +5,9 @@
      
       
       <nav>
+        <router-link to="/admin/manage-stops" class="btn">Gestionar visitas</router-link>
         <router-link to="/admin/manage-tours/add-tour" class="btn">Añadir nuevo tour</router-link>
-        <router-link to="/admin/manage-tours/create-stops" class="btn">Crear visitas</router-link>
+        
       </nav>
        <h2>Gestionar tours</h2>
     </header>

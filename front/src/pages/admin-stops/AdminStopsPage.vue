@@ -105,6 +105,8 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
   
 }
 .stops-list header h2{
@@ -125,21 +127,49 @@ export default {
 }
 .stop-index-box{
   box-shadow: 0px 0px 14px 3px rgba(187, 194, 211, 0.75);
-  padding: 1.5em;
+  padding: 1.5em 1.5em 3em;
   background-color: rgb(243, 245, 249);
   margin-bottom: 1.5em;
+  max-width: 950px;
+  margin: 1.5em auto;
+  text-align: justify;
 }
 
 .images-wrapper{
   display: flex;
   flex-direction: row;
-  justify-content:flex-start;
-  align-items:flex-end;
+  justify-content:space-around;
+   
 }
 
 .images-wrapper img{
-  width:90%;
+  width:100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+
   }
+
+.images-wrapper figure{
+  width: 40%;
+  padding-top: 40%;
+  position: relative;
+  overflow: hidden;
+  
+}
+.images-wrapper figcaption{
+  position: absolute;
+  top: 90%;
+  left: 0;
+  z-index: 30;
+  background-color: rgb(37, 26, 26);
+  padding: 0.3em;
+  color: white;
+  font-weight: bold;
+}
 
 
 .btn{
