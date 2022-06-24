@@ -1,6 +1,6 @@
 <template>
   <div class="add-stop-page container">
-    <router-link to="/admin/manage-tours" class="back-link"> ⇐ Volver a lista de tours</router-link>
+    <router-link to="/admin/manage-stops" class="back-link"> ⇐ Volver a lista de visitas</router-link>
     <section class="add-stop-form">
       <h2>Añadir nueva visita</h2>
       <form>
@@ -93,7 +93,7 @@ export default {
 
       alert("Visita guardada con éxito");
 
-      this.$router.push("/admin/manage-tours");
+      this.$router.push("/admin/manage-stops");
     },
   },
 
